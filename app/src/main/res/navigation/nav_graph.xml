@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.happymall.presentation.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph.xml" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.happymall.presentation.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.happymall.presentation.ui.detail.ProductDetailFragment"
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="shopItem"
+            app:argType="com.example.happymall.data.model.ShopItem" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.happymall.presentation.ui.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.happymall.presentation.ui.splashscreen.SplashScreenFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
